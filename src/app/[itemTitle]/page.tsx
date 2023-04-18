@@ -22,8 +22,7 @@ interface IEbay{
         value:string,
         currency: string
     },
-    itemWebUrl: 'https://www.ebay.com/itm/174620891167?hash=item28a837581f:g:I4sAAOSwGmlgGE2U&amdata=enc%3AAQAIAAAA4Au3atrCWWH%2F3mOiWgFar8bwok6UoQzdN1fWYKV69Kz5QIU9q%2Bw0DpOPSKg4yCtYLe6JrfACUa9EYG0YopLNFM3da05%2BQ%2BzVPDjXQa29%2Bt9bI7OdjbKz63o%2BVYNxUEbIVCt4dmVx9gvavP%2BL%2BAdwV4xVLAVrug69L3Kvy%2Fa25DrIENnBQKTfLtDTGEiQv8ZLeyD8ct1wDGIvITQOoQVjhvmdjQlUs61%2FJpTlQJcYE7rhh8D02NdzvoSZq8Ehn0yxuKdOuWARN3tudbLYQkLA1gQnnL5VP%2FYp3bXH5%2FAnwRWv',
- 
+    itemWebUrl: string
 }
 
 export default async function itemDetails({params:{itemTitle}}:IItemDetails){
@@ -55,15 +54,16 @@ export default async function itemDetails({params:{itemTitle}}:IItemDetails){
             <h3>Back to main page</h3>
             </Link>
     </div>
-    <h2 className={styles.hTag}>Ebay response:</h2>
-    <div className={styles.ebayWrapper}>
+    <h2 className={styles.hTag}>Ebay response:</h2> 
+    <div className={styles.ebayWrapper}> 
         {ebayData.itemSummaries?.map(item=>(
+            <Link href={item.itemWebUrl} target="blank">
             <div className={styles.ebayCard}>
                 <div>{item.title}</div>
-                <img src={item.image.imageUrl} alt="img" width={150} height={150} />
+                <img src={item.image.imageUrl} alt="img" width={150} height={150} style={{borderRadius:10}} />
                 <div>{item.price.value+" "+item.price.currency}</div>
             </div>
-            
+            </Link>            
         ))}
     </div>
     </div>

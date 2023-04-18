@@ -27,6 +27,7 @@ interface searchParams{
 export const searchApi = createApi({
     reducerPath: "searchApi",
     baseQuery:fetchBaseQuery({baseUrl:" http://localhost:5000"}),
+    tagTypes:["search"],
     endpoints: builder =>({
         searchItem:builder.query<any,searchParams>({
             query: (arg) => { 
@@ -35,7 +36,7 @@ export const searchApi = createApi({
                     url: "/api/ebay-items/search",
                     params: {text}
                 }  
-            }
+            },
             
         })
     })

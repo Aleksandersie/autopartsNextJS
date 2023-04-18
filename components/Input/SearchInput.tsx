@@ -12,7 +12,7 @@ import Link from "next/link";
 
 
 export default function SearchInput(){
-    const [searchValue, setSearchValue] = useState('')
+    const [searchValue, setSearchValue] = useState("")
     
     const debounceFn = useDebounce(searchValue)
 
@@ -20,8 +20,7 @@ export default function SearchInput(){
     
    
     useEffect(()=>{
-        console.log("deb",debounceFn)
-        console.log("da", response)
+        console.log("res", response.data)
     }, [debounceFn])
 
 
@@ -29,9 +28,10 @@ export default function SearchInput(){
         <div className={styles.inputWrapper}>
         <input className={styles.input} value={searchValue} onChange={(e)=>setSearchValue(e.target.value)}/>
         <div className={styles.inputDropdown}>
+        
             {response.data?.map(item=>(
-                <Link href={`/${item.title}`} >
-                     <p key={item.id}>{item.title}</p>
+                <Link href={`/${item.title}`} key={item.id} >
+                     <p >{item.title}</p>
                 </Link>
                
             ))}
