@@ -1,4 +1,4 @@
 export default async function getItems(){
-    const response = await fetch ("http://130.61.209.4:8087/api/product/find/all?page=5")
+    const response = await fetch ("http://localhost:5000/api/ebay-items/getAllItems")
     return response.json()
 }

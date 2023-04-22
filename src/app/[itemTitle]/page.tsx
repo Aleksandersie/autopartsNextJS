@@ -60,7 +60,7 @@ export default async function itemDetails({params:{itemTitle}}:IItemDetails){
             <Link href={item.itemWebUrl} target="blank">
             <div className={styles.ebayCard}>
                 <div>{item.title}</div>
-                <img src={item.image.imageUrl} alt="img" width={150} height={150} style={{borderRadius:10}} />
+                <img src={item.image?.imageUrl} alt="img" width={150} height={150} style={{borderRadius:10}} />
                 <div>{item.price.value+" "+item.price.currency}</div>
             </div>
             </Link>            
