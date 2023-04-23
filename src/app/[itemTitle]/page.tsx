@@ -35,8 +35,8 @@ export default async function itemDetails({params:{itemTitle}}:IItemDetails){
     return<> 
     <div className="container">
         <h2 className={styles.hTag}>Database response:</h2>
-    {data.map(el=>(
-        <div className={styles.wrapper}> 
+    {data.map((el:any)=>(
+        <div key={el.itemTitle} className={styles.wrapper}> 
             <div><img
             width={260} 
             src="https://mall.industry.siemens.com/mall/Images/Header/Siemens logo.png"></img></div>
@@ -56,8 +56,8 @@ export default async function itemDetails({params:{itemTitle}}:IItemDetails){
     </div>
     <h2 className={styles.hTag}>Ebay response:</h2> 
     <div className={styles.ebayWrapper}> 
-        {ebayData.itemSummaries?.map(item=>(
-            <Link href={item.itemWebUrl} target="blank">
+        {ebayData.itemSummaries?.map((item:any)=>(
+            <Link href={item.itemWebUrl} target="blank" key={item.title}>
             <div className={styles.ebayCard}>
                 <div>{item.title}</div>
                 <img src={item.image?.imageUrl} alt="img" width={150} height={150} style={{borderRadius:10}} />

@@ -20,7 +20,7 @@ interface serverResponse{
 
 export default async function Home() {
 
-  const data: Promise<serverResponse[]> = await getItems()
+  const data: any = await getItems()
 
   return (
     <main className="container">

@@ -16,7 +16,7 @@ export default function SearchInput(){
     
     const debounceFn = useDebounce(searchValue)
 
-    const response = useSearchItemQuery( {text:debounceFn, page:0})
+    const response:any = useSearchItemQuery( {text:debounceFn, page:0})
     
    
     useEffect(()=>{
@@ -25,18 +25,19 @@ export default function SearchInput(){
 
 
     return (
+        <>
         <div className={styles.inputWrapper}>
         <input className={styles.input} value={searchValue} onChange={(e)=>setSearchValue(e.target.value)}/>
         <div className={styles.inputDropdown}>
-        
-            {response.data?.map(item=>(
+            {response.data?.map((item:any)=>(
                 <Link href={`/${item.title}`} key={item.id} >
                      <p >{item.title}</p>
-                </Link>
-               
+                </Link> 
             ))}
         </div>
         </div>
+        </>
+        
     )
 
 }
