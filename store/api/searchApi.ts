@@ -26,7 +26,7 @@ interface searchParams{
 
 export const searchApi = createApi({
     reducerPath: "searchApi",
-    baseQuery:fetchBaseQuery({baseUrl:" http://localhost:5000"}),
+    baseQuery:fetchBaseQuery({baseUrl:" http://91.201.55.182:5000"}),
     tagTypes:["search"],
     endpoints: builder =>({
         searchItem:builder.query<any,searchParams>({

@@ -26,7 +26,7 @@ interface IEbay{
 }
 
 export default async function itemDetails({params:{itemTitle}}:IItemDetails){
-    const response = await fetch (`http://localhost:5000/api/ebay-items/search?text=${itemTitle}&page=0`)
+    const response = await fetch (`http://91.201.55.182:5000/api/ebay-items/search?text=${itemTitle}&page=0`)
     const data = await response.json()
 
     const ebayData:IEbayResponse = await getFromEbay(itemTitle)
