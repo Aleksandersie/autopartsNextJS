@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { url } from 'inspector'
+import { MAIN_HOST } from '../../HOST'
 
 
 interface searchParams{
@@ -26,7 +27,7 @@ interface searchParams{
 
 export const searchApi = createApi({
     reducerPath: "searchApi",
-    baseQuery:fetchBaseQuery({baseUrl:" http://91.201.55.182:5000"}),
+    baseQuery:fetchBaseQuery({baseUrl:MAIN_HOST}),
     tagTypes:["search"],
     endpoints: builder =>({
         searchItem:builder.query<any,searchParams>({

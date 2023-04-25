@@ -7,6 +7,7 @@ import SearchInput from '../../components/Input/SearchInput'
 import { Provider } from 'react-redux'
 import { store } from '../../store'
 import Providers from '../../components/Provider/Provider'
+import Link from 'next/link'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,7 +24,8 @@ export default async function Home() {
   const data: any = await getItems()
 
   return (
-    <main className="container">
+    <main className="container"> 
+     
       <div className={styles.title}>AUTOMPARTS24</div>
       <hr />
       <Providers>
