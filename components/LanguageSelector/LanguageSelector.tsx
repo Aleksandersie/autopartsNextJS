@@ -10,13 +10,18 @@ export default function LanguageSelector(){
     const {currentLanguage} = useSelector(state=>state.languageSliceReducer)
 
      const dispath = useDispatch()
-    function setDE(){
+    async function setDE(){
         dispath(languageSlice.actions.setLanguage("DE"))
         console.log(currentLanguage)
+        const response = await getPageText(currentLanguage)
+        console.log(response)
+
     }
-    function setEN(){
+    async function setEN(){
         dispath(languageSlice.actions.setLanguage("EN"))
         console.log(currentLanguage)
+        const response = await getPageText(currentLanguage)
+        console.log(response)
     }
     async function get(){
        const response = await getPageText(currentLanguage)
