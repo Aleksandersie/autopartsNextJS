@@ -1,6 +1,6 @@
 import { log } from "console"
 import { URLSearchParams } from "url"
-import getFromEbay from "../../../lib/ebay"
+import getFromEbay from "../../../../lib/ebay"
 import styles from "./itemStyles.module.css"
 import Link from "next/link"
 

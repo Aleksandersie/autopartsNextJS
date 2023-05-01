@@ -1,12 +1,13 @@
 "use client"
 
+import Link from "next/link"
 import getPageText from "../../lib/getPageText"
 import selector from "../../lib/selector"
 import { languageSlice } from "../../store/languageSlice"
 import styles from "./styles.module.css"
 import { useDispatch, useSelector } from "react-redux"
 
-export default function LanguageSelector(){
+export default function LanguageSelector(params){
 
     
 
@@ -34,9 +35,20 @@ export default function LanguageSelector(){
     }
     return(
         <div className={styles.wrapper}>
-            <h3 onClick={setEN}>EN</h3>
+            {/* <h3 onClick={setEN}>EN</h3>
             <h3 onClick={setDE}>DE</h3>
-            <h3 onClick={get}>get</h3>
+            <h3 onClick={get}>get</h3> */}
+
+            <Link href="/" locale="en">
+            <h3>EN</h3>
+            </Link>
+
+            <Link href="/" locale="de">
+            <h3>DE</h3>
+            </Link>
+            <Link href="/lang" > 
+            <h3>test</h3>
+            </Link >
         </div>
     )
 }

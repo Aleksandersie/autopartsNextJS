@@ -1,13 +1,18 @@
 import { Inter } from 'next/font/google'
 
-import Out from '../../components/Out'
-import getItems from '../../lib/getItems'
+
 import styles from "./page.module.css"
-import SearchInput from '../../components/Input/SearchInput'
+
 import { Provider } from 'react-redux'
-import { store } from '../../store'
-import Providers from '../../components/Provider/Provider'
+
+
 import Link from 'next/link'
+import getItems from '../../../lib/getItems'
+import Providers from '../../../components/Provider/Provider'
+import SearchInput from '../../../components/Input/SearchInput'
+import Out from '../../../components/Out'
+import { Footer } from './components/Footer'
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,7 +24,7 @@ interface serverResponse{
 }
 
 
-export default async function Home() {
+export default async function Home({ params: { lng } }) {
 
   const data: any = await getItems()
 
@@ -28,6 +33,10 @@ export default async function Home() {
      
       <div className={styles.title}>AUTOMPARTS24</div>
       <hr />
+      <Footer lng={lng}/>
+      <Link href={`/${lng}/second-page`}>
+        second page
+      </Link>
       <Providers>
       <SearchInput />
       </Providers>
